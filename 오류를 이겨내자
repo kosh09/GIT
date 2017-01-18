@@ -1,0 +1,18 @@
+bluetooth/ bluetooth.h 가 없다고 뜰 경우
+$ sudo apt install libbluetooth-dev
+
+파이썬에서 import bluetooth 를 실행할 때 모듈이 없다는 경우
+$ sudo -H pip3 install pybluez
+
+파이썬에서 bluetooth socket등을 이용하는 방법
+
+Arduino101 을 사용하는 방법
+$ ./opt/arduino1.8.0/arduino101_flashpack/create_flasher.sh
+(Arduino101 이 연결된 상태에서 이것을 실행해서 새로운 펌웨어를 다운을 해줘야함)
+
+파이썬에서 inconsistent use of tabs and spaces in indentation 라는 문구가 뜰경우
+$ 메세지가 뜬 후에 그 다음칸 부분에서 delete를 이용해서 맨 앞까지 끌어당긴 후에
+  tab을 이용해서 indent를 맞춤
+
+MP3 파일을 WAV 파일로 변환하는 방법
+$ mpg123 -w "변환이 된 파일.wav" "변환을 할 파일.mp3" 
