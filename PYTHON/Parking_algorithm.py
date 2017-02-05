@@ -19,8 +19,8 @@ import Ultrasonic_distance as Ult
 import Laser_distance as Las
 
 # For playing wav file
-import play_wav_file as PLAY
-import Bluetooth&Serial as BS
+import play
+import BT_Serial as bt
 
 # Import internal module
 import time
@@ -35,24 +35,21 @@ sens7 = Ult.distance_7()
 sens8 = Ult.distance_8()
 
 def Alarm():
-    if (sens1 < and sens1 > and sen6 > and sens6 < )
-        or (sens3 < and sens3 > and sens4 > and sens4 < )
-        or (sens1 < and sens1 > and sen6 > and sens6 < and sens7 < and sens7 > )
-        or (sens3 < and sens3 > and sen4 > and sens4 < and sens8 < and sens8 > ):
-
-        PLAY.play_parking_available()
-
+    while True:
+        if (sens1 < and sens1 > and sen6 > and sens6 < and sens7 > ) or (sens3 < and sens3 > and sens4 > and sens4 < ) or (sens1 < and sens1 > and sen6 > and sens6 < and sens7 < and sens7 > ) or (sens3 < and sens3 > and sen4 > and sens4 < and sens8 < and sens8 > ):
+            play.p_a()
+            time.sleep(1)
 
 
 def Parking():
-    PLAY.play_start_parking()    # Play wav file before parking sequence start
+    play.s_p()    # Play wav file before parking sequence start
                                  # wav file will be play two times
     time.sleep(2)
 
 ####################################################################
 ##################   Right_Back parking process   ##################
 ####################################################################
-    if sens1 < and sens1 > and sen6 > and sens6 < :
+    if sens1 < and sens1 > and sen6 > and sens6 < and sens7 > :
         BS.HS00()
         time.sleep(2)
         BS.HL30()
@@ -76,7 +73,7 @@ def Parking():
 ####################################################################
 ######################   좌측 후면주차프로세싱   ######################
 ####################################################################
-    elif sens3 < and sens3 > and sens4 > and sens4 < :
+    elif sens3 < and sens3 > and sens4 > and sens4 < and sens8 > :
         BS.HS00()
         time.sleep(2)
         BS.HR30()
@@ -100,7 +97,7 @@ def Parking():
 ####################################################################
 ######################   우측 측면주차프로세싱   ######################
 ####################################################################
-    elif sens1 < and sens1 > and sen6 > and sens6 < and sens7 < and sens7 > :
+    elif sens1 < and sens1 > and sen6 > and sens6 < and sens7 > :
         BS.HL30()
         time.sleep(0.5)
         BS.FL30()
@@ -132,9 +129,9 @@ def Parking():
                             break
 
 ####################################################################
-######################   좌측 측면주차프로세싱   ######################
+######################   좌측 측면주차프로세싱   #####################
 ####################################################################
-    elif sens3 < and sens3 > and sen4 > and sens4 < and sens8 < and sens8 > :
+    elif sens3 < and sens3 > and sen4 > and sens4 < and sens8 > :
         BS.HR30()
         time.sleep(0.5)
         BS.FR30()
